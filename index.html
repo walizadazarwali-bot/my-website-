@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html lang="ps" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📿 دیجیتل تسبیح</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Tahoma,sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#0f766e,#065f46);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+}
+
+.tasbeeh{
+    width:400px;
+    max-width:100%;
+    max-height:90vh;
+    overflow-y:auto;
+    background:orange;
+    border-radius:30px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,.3);
+}
+
+.icon{
+    font-size:70px;
+    margin-bottom:10px;
+}
+
+h2{
+    color:black;
+    margin-bottom:20px;
+}
+
+.counter{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    background:url(khan1.png);  
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:20px auto;
+    font-size:60px;
+    font-weight:bold;
+    box-shadow:0 20px 30px rgba(0,0,0,.25);
+}
+
+.btn{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:15px;
+    font-size:22px;
+    cursor:pointer;
+    margin-top:10px;
+    transition:.3s;
+}
+
+.add{
+    background:green;
+    color:white;
+}
+
+.add:hover{
+    transform:scale(1.03);
+}
+
+.reset{
+    background:red;
+    color:white;
+}
+
+.reset:hover{
+    transform:scale(1.03);
+}
+
+.zikr{
+    margin-top:15px;
+    color:#555;
+    font-size:18px;
+}
+
+.names-btn{
+    width:100%;
+    padding:15px;
+    margin-top:15px;
+    border:none;
+    border-radius:20px;
+    background:blue;
+    color:white;
+    font-size:20px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+#allahNames{
+    display:none;
+    margin-top:15px;
+    background:url(khan2.png);
+ color:white;
+    padding:15px;
+    border-radius:20px;
+    line-height:2.2;
+    text-align:right;
+
+    max-height:250px;
+    overflow-y:auto;
+    border:2px solid #10b981;
+}
+
+.names-title{
+    color:#047857;
+    margin-bottom:10px;
+    text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="tasbeeh">
+    
+    
+
+    <h2>دیجیتل تسبیح</h2>
+
+    <div class="counter" id="count">0</div>
+
+    <button class="btn add" onclick="addCount()">
+        تسبیح
+    </button>
+    <button class="btn reset" onclick="resetCount()">
+    پاکول
+    </button>
+    <button class="names-btn" onclick="toggleNames()">
+        📖 د الله ﷻ ۹۹ نومونه
+    </button>
+
+    <div id="allahNames">
+        <h3 class="names-title">🌙 اسماء الحسنی</h3>
+
+        الله، الرحمن، الرحیم، الملک، القدوس، السلام، المؤمن، المهیمن، العزیز،
+        الجبار، المتکبر، الخالق، البارئ، المصور، الغفار، القهار، الوهاب، الرزاق،
+        الفتاح، العلیم، القابض، الباسط، الخافض، الرافع، المعز، المذل، السمیع،
+        البصیر، الحکم، العدل، اللطیف، الخبیر، الحلیم، العظیم، الغفور، الشکور،
+        العلی، الکبیر، الحفیظ، المقیت، الحسیب، الجلیل، الکریم، الرقیب، المجیب،
+        الواسع، الحکیم، الودود، المجید، الباعث، الشهید، الحق، الوکیل، القوی،
+        المتین، الولی، الحمید، المحصی، المبدئ، المعید، المحیی، الممیت، الحی،
+        القیوم، الواجد، الماجد، الواحد، الأحد، الصمد، القادر، المقتدر، المقدم،
+        المؤخر، الأول، الآخر، الظاهر، الباطن، الوالي، المتعالي، البر، التواب،
+        المنتقم، العفو، الرؤوف، مالک الملک، ذو الجلال والإکرام، المقسط، الجامع،
+        الغني، المغني، المانع، الضار، النافع، النور، الهادي، البدیع، الباقي،
+        الوارث، الرشید، الصبور.
+        <br>
+   
+ترتیب کونکی (زرولی ولی زاده)
+
+    </div>
+
+    ترتیب کونکی زرولی ولی زاده
+
+
+</div>
+
+<script>
+let count = localStorage.getItem("tasbeehCount") || 0;
+document.getElementById("count").innerText = count;
+
+function addCount(){
+    count++;
+    document.getElementById("count").innerText = count;
+    localStorage.setItem("tasbeehCount", count);
+}
+
+function resetCount(){
+    count = 0;
+    document.getElementById("count").innerText = count;
+    localStorage.setItem("tasbeehCount", count);
+}
+
+function toggleNames(){
+    let names = document.getElementById("allahNames");
+
+    if(names.style.display === "block"){
+        names.style.display = "none";
+    }else{
+        names.style.display = "block";
+    }
+}
+</script>
+
+</body>
+</html>
+
